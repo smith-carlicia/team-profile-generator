@@ -33,3 +33,105 @@ const render = require("./lib/htmlRenderer");
 // for further information. Be sure to test out each class and verify it generates an
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
+let teamMembers = [];
+
+const employeeQuestion = [
+    {
+        type: "list",
+        message: "Would you like to add a new employee or generate current team information?",
+        name: "Add",
+        choices: ["Add member", "Generate current team"],
+    },
+];
+
+const role = [
+    {
+        type: "list",
+        message: "What is your role?",
+        name: "role",
+        choices: ["Manager", "Engineer, Intern"],
+    },
+];
+
+const manager = [
+    {
+        type: "input",
+        message: "What is your name?",
+        name: "name",
+    },
+    {
+        type: "input",
+        message: "What is your ID number?",
+        name: "id",
+    },
+    {
+        type: "input",
+        message: "What is your email address?",
+        name: "email",
+    },
+    {
+        type: "input",
+        message:"What is your office number?",
+        name: "officeNumber",
+    },
+];
+
+const engineer = [
+    {
+        type: "input",
+        message: "What is your name?",
+        name: "name",
+    },
+    {
+        type:"input",
+        message: "What is your ID number?",
+        name: "id",
+    },
+    {
+        type: "input",
+        message: "What is your email address?",
+        name: "email",
+    },
+    {
+        type: "input",
+        message: "What is your GitHub username?",
+        name: "gitHub",
+    },
+];
+
+const intern = [
+    {
+        type: "input",
+        message: "What is your name?",
+        name: "name",
+    },
+    {
+        type: "input",
+        message: "What is your ID number?",
+        name: "id",
+    },
+    {
+        type: "input",
+        messgae: "What is your email address?",
+        name: "email",
+    },
+    {
+        type: "input",
+        message: "What school are you currently attending?",
+        name: "school",
+    },
+];
+
+function init() {
+    inquirer.prompt(employeeQuestion).then((choices) => {
+        console.log(employeeQuestion);
+        if(choices.add === "Add member") {
+            addMember();
+        } else {
+            createHTML();
+        }
+    })
+    
+    };
+
+    init();
