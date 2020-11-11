@@ -5,7 +5,7 @@ class Intern {
     constructor(name, id, email, school) {
         super(name, id, email, role)
         this.school = school;
-        this.role = role;
+        this.role = "Intern";
     }
 
     getName() {

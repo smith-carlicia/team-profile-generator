@@ -5,7 +5,7 @@ class Manager {
     constructor(name, id, email, officeNumber) {
         super(name, id, email)
         this.officeNumber = officeNumber;
-        this.role = role;
+        this.role = "Manager";
     }
 
     getName() {
