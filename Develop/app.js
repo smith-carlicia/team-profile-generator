@@ -139,7 +139,7 @@ function init() {
 
     function addMember() {
         inquirer.prompt(role).then((choices) => {
-          if (role === "manager") {
+          if (choices.role === "Manager") {
             inquirer.prompt(manager).then((answers) => {
               manager = new Manager(
                 choices.role,
@@ -153,7 +153,7 @@ function init() {
               console.log(manager);
               init();
             });
-          } else if (role === "engineer") {
+          } else if (choices.role === "Engineer") {
             inquirer.prompt(engineer).then((answers) => {
                 engineer = new Engineer(
                 answers.name,
@@ -166,7 +166,7 @@ function init() {
               console.log(engineer);
               init();
             });
-          } else if (role === "Intern") {
+          } else if (choices.role === "Intern") {
             inquirer.prompt(intern).then((answers) => {
               intern = new Intern(
                 answers.name,
