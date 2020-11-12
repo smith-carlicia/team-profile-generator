@@ -35,6 +35,15 @@ const render = require("./lib/htmlRenderer");
 // for the provided `render` function to work! ```
 let teamMembers = [];
 
+var employeeQuestion = [
+    {
+        type: "list",
+        message: "This should work.",
+        name: "Add",
+        choices: ["Here is a choice", "Here is another choice"],
+    }
+];
+
 function init() {
     inquirer.prompt(employeeQuestion).then((choices) => {
         console.log(employeeQuestion);
@@ -150,7 +159,59 @@ function init() {
 
     init();
 
-
+    function addMember() {
+        inquirer.prompt(questions).then(({ role }) => {
+          if (role === "Engineer") {
+            inquirer.prompt(questionsEngineer).then((answers) => {
+              engineer = new Engineer(
+                answers.name,
+                answers.role,
+                answers.idNumber,
+                answers.email,
+                answers.github
+              );
+              teamMembers.push(engineer);
+              console.log(engineer);
+              startApp();
+            });
+          } else if (role === "Intern") {
+            inquirer.prompt(questionsIntern).then((answers) => {
+              intern = new Intern(
+                answers.name,
+                answers.role,
+                answers.idNumber,
+                answers.email,
+                answers.school
+              );
+              teamMembers.push(intern);
+              console.log(intern);
+              startApp();
+            });
+          } else if (role === "Manager") {
+            inquirer.prompt(questionsManager).then((answers) => {
+              manager = new Manager(
+                answers.name,
+                answers.role,
+                answers.idNumber,
+                answers.email,
+                answers.officeNumber
+              );
+              teamMembers.push(manager);
+              console.log(manager);
+              startApp();
+            });
+          }
+        });
+      }
+      
+      console.log(teamMembers);
+      
+      function createHTML() {
+        if (!fs.existsSync(OUTPUT_DIR)) {
+          fs.mkdirSync(OUTPUT_DIR);
+        }
+        fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
+      }
     // //creating a buil function 
 
     // function buildMe () {
