@@ -141,7 +141,7 @@ function init() {
         inquirer.prompt(role).then((choices) => {
           if (choices.role === "Manager") {
             inquirer.prompt(manager).then((answers) => {
-              manager = new Manager(
+              let managerObj = new Manager(
                 choices.role,
                 answers.name,
                 answers.role,
@@ -149,41 +149,43 @@ function init() {
                 answers.email,
                 answers.officeNumber,
               );
-              teamMembers.push(manager);
+              teamMembers.push(managerObj);
+              console.log(teamMembers);
               console.log(manager);
               init();
             });
           } else if (choices.role === "Engineer") {
             inquirer.prompt(engineer).then((answers) => {
-                engineer = new Engineer(
+              let engineerObj = new Engineer(
                 answers.name,
                 answers.role,
                 answers.idNumber,
                 answers.email,
                 answers.gitHub,
               );
-              teamMembers.push(engineer);
-              console.log(engineer);
+              teamMembers.push(engineerObj);
+              console.log(engineerObj);
               init();
             });
           } else if (choices.role === "Intern") {
             inquirer.prompt(intern).then((answers) => {
-              intern = new Intern(
+              let internObj = new Intern(
                 answers.name,
                 answers.role,
                 answers.idNumber,
                 answers.email,
                 answers.school,
               );
-              teamMembers.push(intern);
-              console.log(intern);
+              teamMembers.push(internObj);
+              console.log(internObj);
               init();
             });
+          } else {
+              createHTML();
           }
         });
       }
       
-      console.log(teamMembers);
       
     //   function createHTML() {
     //     if (!fs.existsSync(OUTPUT_DIR)) {
@@ -195,7 +197,7 @@ function init() {
 
       init();
 
-    //creating a buil function 
+    //createHTML function to generate a new html file with either a new employee or current team roster
 
     function createHTML () {
          //check to see if the file you desire to create already exists.
@@ -204,10 +206,10 @@ function init() {
          //if there is not a folder in the system - make folder
          if(!fs.existsSync(OUTPUT_DIR)) {
              //this will make the folder and sync the data
-             fs.mkdirSync(OUTPUT_DIR)
+             fs.mkdirSync(OUTPUT_DIR);
          }
-
-         fs.writeFileSync(outputPath, render(teamMembers),  "utf-8")
+console.log(teamMembers);
+         fs.writeFileSync(outputPath, render(teamMembers),  "utf-8");
 
     }
 
