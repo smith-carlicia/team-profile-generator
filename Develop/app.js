@@ -35,93 +35,6 @@ const render = require("./lib/htmlRenderer");
 // for the provided `render` function to work! ```
 let teamMembers = [];
 
-const employeeQuestion = [
-    {
-        type: "list",
-        message: "Would you like to add a new employee or generate current team information?",
-        name: "Add",
-        choices: ["Add member", "Generate current team"],
-    },
-];
-
-const role = [
-    {
-        type: "list",
-        message: "What is your role?",
-        name: "role",
-        choices: ["Manager", "Engineer, Intern"],
-    },
-];
-
-const manager = [
-    {
-        type: "input",
-        message: "What is your name?",
-        name: "name",
-    },
-    {
-        type: "input",
-        message: "What is your ID number?",
-        name: "id",
-    },
-    {
-        type: "input",
-        message: "What is your email address?",
-        name: "email",
-    },
-    {
-        type: "input",
-        message:"What is your office number?",
-        name: "officeNumber",
-    },
-];
-
-const engineer = [
-    {
-        type: "input",
-        message: "What is your name?",
-        name: "name",
-    },
-    {
-        type:"input",
-        message: "What is your ID number?",
-        name: "id",
-    },
-    {
-        type: "input",
-        message: "What is your email address?",
-        name: "email",
-    },
-    {
-        type: "input",
-        message: "What is your GitHub username?",
-        name: "gitHub",
-    },
-];
-
-const intern = [
-    {
-        type: "input",
-        message: "What is your name?",
-        name: "name",
-    },
-    {
-        type: "input",
-        message: "What is your ID number?",
-        name: "id",
-    },
-    {
-        type: "input",
-        messgae: "What is your email address?",
-        name: "email",
-    },
-    {
-        type: "input",
-        message: "What school are you currently attending?",
-        name: "school",
-    },
-];
-
 function init() {
     inquirer.prompt(employeeQuestion).then((choices) => {
         console.log(employeeQuestion);
@@ -131,7 +44,125 @@ function init() {
             createHTML();
         }
     })
+
+    function Employee ()
+    {
+        inquirer.prompt([
+            {
+            type: "list",
+            message: "Would you like to add a new employee or generate current team information?",
+            name: "Add",
+            choices: ["Add member", "Generate current team"],
+            }
+        ]);
+    };
     
+    function Role ()
+    {
+        inquirer.prompt([
+            {
+                type: "list",
+                message: "What is your role?",
+                name: "role",
+                choices: ["Manager", "Engineer, Intern"],
+            }
+        ]);
+    };
+
+    function Manager ()
+    {
+        inquirer.prompt([
+            {
+                type: "input",
+                message: "What is your name?",
+                name: "name",
+            },
+            {
+                type: "input",
+                message: "What is your ID number?",
+                name: "id",
+            },
+            {
+                type: "input",
+                message: "What is your email address?",
+                name: "email",
+            },
+            {
+                type: "input",
+                message:"What is your office number?",
+                name: "officeNumber",
+            },
+        ]);
+    };
+
+    function Engineer ()
+    {
+        inquirer.prompt([
+            {
+                type: "input",
+                message: "What is your name?",
+                name: "name",
+            },
+            {
+                type:"input",
+                message: "What is your ID number?",
+                name: "id",
+            },
+            {
+                type: "input",
+                message: "What is your email address?",
+                name: "email",
+            },
+            {
+                type: "input",
+                message: "What is your GitHub username?",
+                name: "gitHub",
+            },
+        ]);
+    }
+// The intern method - once the init methos is ran - this function will automatically be available for use
+    function Intern ()
+    {
+        inquirer.prompt([
+        {
+            type: "input",
+            message: "What is your name?",
+            name: "name",
+        },
+        {
+            type: "input",
+            message: "What is your ID number?",
+            name: "id",
+        },
+        {
+            type: "input",
+            messgae: "What is your email address?",
+            name: "email",
+        },
+        {
+            type: "input",
+            message: "What school are you currently attending?",
+            name: "school",
+        },
+    ])
+    };
     };
 
     init();
+
+
+    // //creating a buil function 
+
+    // function buildMe () {
+    //      //check to see if the file you desire to create already exists.
+    //      //if statement
+
+    //      //if there is not a folder in the system - make folder
+    //      if(!fs.existsSync(OUTPUT_DIR)) {
+    //          //this will make the folder and sync the data
+    //          fs.mkdirSync(OUTPUT_DIR)
+    //      }
+
+    //      fs.writeFileSync(outputPath, render(teamMembers),  "utf-8")
+
+    // }
