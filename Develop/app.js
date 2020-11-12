@@ -141,7 +141,8 @@ function init() {
         inquirer.prompt(role).then((choices) => {
           if (role === "manager") {
             inquirer.prompt(manager).then((answers) => {
-              engineer = new Manager(
+              manager = new Manager(
+                choices.role,
                 answers.name,
                 answers.role,
                 answers.idNumber,
@@ -154,7 +155,7 @@ function init() {
             });
           } else if (role === "engineer") {
             inquirer.prompt(engineer).then((answers) => {
-              intern = new Engineer(
+                engineer = new Engineer(
                 answers.name,
                 answers.role,
                 answers.idNumber,
@@ -167,7 +168,7 @@ function init() {
             });
           } else if (role === "Intern") {
             inquirer.prompt(intern).then((answers) => {
-              manager = new Intern(
+              intern = new Intern(
                 answers.name,
                 answers.role,
                 answers.idNumber,
