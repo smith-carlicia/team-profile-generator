@@ -5,6 +5,8 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
+const { eventNames } = require("process")
+
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
@@ -138,15 +140,16 @@ function init() {
 
 
     function addMember() {
+        console.log(addMember);
         inquirer.prompt(role).then((choices) => {
           if (choices.role === "Manager") {
             inquirer.prompt(manager).then((answers) => {
               let managerObj = new Manager(
                 choices.role,
                 answers.name,
-                answers.role,
-                answers.idNumber,
+                answers.id,
                 answers.email,
+                answers.role,
                 answers.officeNumber,
               );
               teamMembers.push(managerObj);
@@ -158,9 +161,9 @@ function init() {
             inquirer.prompt(engineer).then((answers) => {
               let engineerObj = new Engineer(
                 answers.name,
-                answers.role,
-                answers.idNumber,
+                answers.id,
                 answers.email,
+                answers.role,
                 answers.gitHub,
               );
               teamMembers.push(engineerObj);
@@ -171,9 +174,9 @@ function init() {
             inquirer.prompt(intern).then((answers) => {
               let internObj = new Intern(
                 answers.name,
-                answers.role,
-                answers.idNumber,
+                answers.id,
                 answers.email,
+                answers.role,
                 answers.school,
               );
               teamMembers.push(internObj);
