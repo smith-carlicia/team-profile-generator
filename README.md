@@ -6,10 +6,10 @@ This codebase is built via ES6 and node.js to create an office team generator co
 
 ## Screenshots and Videos
 
-![demo](./assets/team-generator-gif-1.gif)
-![demo](./assets/team-generator-gif-2.gif)
-![demo](./assets/team-generator-gif-3.gif)
-![demo](./assets/team-generator-gif-4.gif)
+![demo](/assets/team-generator-gif-1.gif)
+![demo](/assets/team-generator-gif-2.gif)
+![demo](/assets/team-generator-gif-3.gif)
+![demo](/assets/team-generator-gif-4.gif)
 
 ## Sources
 
