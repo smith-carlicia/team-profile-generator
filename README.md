@@ -6,20 +6,20 @@ This codebase is built via ES6 and node.js to create an office team generator co
 
 ## Screenshots and Videos
 
-![demo](/Develop/assets/team-generator-gif-1.gif)
-![demo](/Develop/assets/team-generator-gif-2.gif)
-![demo](/Develop/assets/team-generator-gif-3.gif)
-![demo](/Develop/assets/team-generator-gif-4.gif)
+![demo](./assets/team-generator-gif-1.gif)
+![demo](./assets/team-generator-gif-2.gif)
+![demo](./assets/team-generator-gif-3.gif)
+![demo](./assets/team-generator-gif-4.gif)
 
 ## Sources
 
-[W3schools](https://www.w3schools.com/js/js_object_constructors.asp)
-[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+* [W3schools](https://www.w3schools.com/js/js_object_constructors.asp)
+* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 
 ## GitHub Repo URL
 
-[GitHub Link](https://github.com/smith-carlicia/team-profile-generator.git)
-[GitHub Repo](git@github.com:smith-carlicia/team-profile-generator.git)
+* [GitHub Link](https://github.com/smith-carlicia/team-profile-generator.git)
+* [GitHub Repo](git@github.com:smith-carlicia/team-profile-generator.git)
 
 ## License
 
